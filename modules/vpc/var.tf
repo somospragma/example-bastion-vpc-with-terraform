@@ -1,44 +1,24 @@
-variable "minimum_instances" {
-  description = "The minimum number of bastion instances."
-  type        = number
-  default     = 1
+variable "vpc_cidr" {
+  default = "10.16.0.0/16"
 }
 
-variable "instance_type" {
-  description = "The instance type of the bastion instances."
+variable "vpc_name" {
+  description = "Vpc name."
   type        = string
-  default     = "t2.micro"
+  default     = "ipv6_vpc_terraform"
 }
 
-variable "maximum_instances" {
-  description = "The maximum number of bastion instances."
-  type        = number
-  default     = 1
-}
-
-variable "desired_instances" {
-  description = "The desired number of bastion instances."
-  type        = number
-  default     = 1
-}
-
-variable "aws_region" {
-  description = "Aws region."
+variable "eks_cluster_name" {
+  description = "Eks cluster name."
   type        = string
-  default     = "us-east-1"
+  default     = "eks-cluster"
 }
 
-variable "aws_instance_keypair" {
-  description = "Aws reinstance key pair."
-  type        = string
-  default     = "DEfMKNK4t^ZKZg})P6(A8(svJQ}FiCG("
+variable "tenancy" {
+  default = "default"
 }
 
-variable "availability_zone" {
-  description = "availability zone."
-  type        = string
-  default     = "us-east-1"
-}
+variable "vpc_id" {}
 
 variable "sub_network_mask" {
   description = "Sub network mask."
@@ -46,16 +26,10 @@ variable "sub_network_mask" {
   default     = "20"
 }
 
-variable "vpc_ip" {
-  description = "Vpc ip."
+variable "availability_zone" {
+  description = "availability zone."
   type        = string
-  default     = "10.16.0.0"
-}
-
-variable "vpc_mask" {
-  description = "Vpc mask."
-  type        = string
-  default     = "16"
+  default     = "us-east-1"
 }
 
 variable "sub_networks" {
@@ -140,6 +114,3 @@ variable "sub_networks" {
     }
   }
 }
-
-
-

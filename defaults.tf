@@ -5,10 +5,6 @@ locals {
   desired_instances          = var.desired_instances == null ? 1 : var.desired_instances
   availability_zone          = var.availability_zone == null ? "us-east-1" : var.availability_zone
   sub_network_mask           = var.sub_network_mask == null ? "20" : var.sub_network_mask
-  sub_networks               = var.sub_networks
-  vpc_name                   = var.vpc_name == null ? "ipv6_vpc_terraform" : var.vpc_name
   vpc_ip                     = var.vpc_ip == null ? "10.16.0.0" : var.vpc_ip
   vpc_mask                   = var.vpc_mask == null ? "16" : var.vpc_mask
-  assign_ipv6_address_subnet = false
-  map_public_ip_subnet       = false
 }
