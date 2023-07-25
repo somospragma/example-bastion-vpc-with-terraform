@@ -30,8 +30,24 @@ resource "aws_instance" "ec2-first" {
   ami = "ami-05548f9cecf47b442"
   instance_type = "t3.micro"
   subnet_id     = var.subnet_id_target
-  user_data = file("${path.module}/app-install.sh")
+  monitoring    = true
+  user_data     = file("${path.module}/app-install.sh")
   tags = {
     Name = "AL4-BASTION"
   }
+
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ec2-user"
+    
+    # Mention the exact private key name which will be generated 
+    private_key = file("tf-key-pair.pem")
+    timeout     = "4m"
+  }
 }
+
+
+
+
+
