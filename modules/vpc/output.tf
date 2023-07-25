@@ -43,3 +43,12 @@ output "subnets_id" {
 output "var_sn_web_b" {
   value = aws_subnet.main_subnet["sub-8"].id
 }
+
+output "aws_security_group_ssh" {
+  value = aws_security_group.sg-ssh.id
+}
+
+output "aws_security_group_web" {
+  value = aws_security_group.sg-web.id
+}
+

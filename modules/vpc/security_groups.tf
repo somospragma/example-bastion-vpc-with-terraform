@@ -1,4 +1,4 @@
-resource "aws_security_group" "sg-1" {
+resource "aws_security_group" "sg-ssh" {
   name = "sg_ping_ssh"  
   description = "Ping y ssh"
   vpc_id      = "${aws_vpc.ipv6_vpc_terraform.id}"
@@ -56,6 +56,6 @@ resource "aws_security_group" "sg-web" {
   }
 
   tags = {
-    Name = "sg_ping_ssh"
+    Name = "sg_web"
   }
 }

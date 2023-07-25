@@ -41,6 +41,10 @@ resource "aws_instance" "ec2-first" {
 
   key_name= "tf-key-pair-test"
 
+  security_groups = [
+      "${var.sg_ssh_id}"
+  ]
+
   connection {
     type        = "ssh"
     host        = self.public_ip
